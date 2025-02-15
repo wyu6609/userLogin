@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import axios from "axios";
+import bcrypt from "bcryptjs";
 import {
   TextField,
   Button,
@@ -14,14 +16,36 @@ const Signup = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [passwordError, setPasswordError] = useState("");
 
-  const handleSignup = () => {
+  const handleSignup = async () => {
     if (password !== confirmPassword) {
       setPasswordError("Passwords do not match");
       return;
     }
+
     setPasswordError("");
-    console.log("Signing up with:", email, password);
-    // Call your backend API here to register the user
+
+    try {
+      // Hash the password before sending
+      const salt = await bcrypt.genSalt(10);
+      const hashedPassword = await bcrypt.hash(password, salt);
+
+      const requestBody = {
+        email,
+        password: hashedPassword,
+      };
+      //local signup endpoint
+      const response = await axios.post(
+        "http://localhost:5000/signup",
+        requestBody
+      );
+
+      console.log("Signup successful:", response.data);
+    } catch (error) {
+      console.error(
+        "Signup failed:",
+        error.response ? error.response.data : error.message
+      );
+    }
   };
 
   return (
