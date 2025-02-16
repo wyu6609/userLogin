@@ -14,25 +14,26 @@ const App = () => {
           <Typography variant="h6" sx={{ flexGrow: 1 }}>
             User Auth App
           </Typography>
-          <Button color="inherit" component={Link} to="/login">
+          <Button color="inherit" component={Link} to="/userLogin/login">
             Login
           </Button>
-          <Button color="inherit" component={Link} to="/signup">
+          <Button color="inherit" component={Link} to="/userLogin/signup">
             Signup
           </Button>
-          <Button color="inherit" component={Link} to="/change-password">
+          <Button
+            color="inherit"
+            component={Link}
+            to="/userLogin/change-password"
+          >
             Change Password
           </Button>
         </Toolbar>
       </AppBar>
       <Routes baseName="/userLogin">
-        <Route path="/userLogin" element={<Home />} />
+        <Route path="/userLogin/" element={<Home />} />
         <Route path="/userLogin/login" element={<Login />} />
         <Route path="/userLogin/signup" element={<Signup />} />
-        <Route
-          path="/user-auth-frontend/change-password"
-          element={<ChangePassword />}
-        />
+        <Route path="/userLogin/change-password" element={<ChangePassword />} />
       </Routes>
     </Router>
   );
