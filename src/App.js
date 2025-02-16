@@ -11,7 +11,17 @@ const App = () => {
     <Router>
       <AppBar position="static">
         <Toolbar>
-          <Typography variant="h6" sx={{ flexGrow: 1 }}>
+          <Typography
+            variant="h6"
+            sx={{
+              flexGrow: 1,
+              textDecoration: "none",
+              color: "inherit",
+              cursor: "pointer",
+            }}
+            component={Link}
+            to="/userLogin/"
+          >
             User Auth App
           </Typography>
           <Button color="inherit" component={Link} to="/userLogin/login">
