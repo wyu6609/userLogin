@@ -1,6 +1,6 @@
 {
   "name": "user-auth-frontend",
-  "homepage": "https://wyu6609.github.io/userLogin",
+  "homepage": "https://wyu6609.github.io/user-auth-frontend",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -15,6 +15,7 @@
     "bcryptjs": "^3.0.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-markdown": "^9.0.3",
     "react-router-dom": "^7.1.5",
     "react-scripts": "^5.0.1",
     "web-vitals": "^2.1.4"
@@ -23,8 +24,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "predeploy": "npm run build && mkdir -p docs && mv build/* docs/",
+    "deploy": "git add docs && git commit -m 'Deploy to GitHub Pages' && git push origin main"
   },
   "eslintConfig": {
     "extends": [

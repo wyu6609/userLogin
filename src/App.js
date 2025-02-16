@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import Login from "./Login";
+import Home from "./Home";
 import Signup from "./Signup";
 import ChangePassword from "./ChangePassword";
 import { AppBar, Toolbar, Typography, Button } from "@mui/material";
@@ -24,11 +25,14 @@ const App = () => {
           </Button>
         </Toolbar>
       </AppBar>
-      <Routes>
-        <Route path="/" element={<Login />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/change-password" element={<ChangePassword />} />
+      <Routes basename="/user-auth-frontend">
+        <Route path="/user-auth-frontend/" element={<Home />} />
+        <Route path="/user-auth-frontend/login" element={<Login />} />
+        <Route path="/user-auth-frontend/signup" element={<Signup />} />
+        <Route
+          path="/user-auth-frontend/change-password"
+          element={<ChangePassword />}
+        />
       </Routes>
     </Router>
   );
