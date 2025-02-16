@@ -25,10 +25,10 @@ const App = () => {
           </Button>
         </Toolbar>
       </AppBar>
-      <Routes basename="/user-auth-frontend">
-        <Route path="/user-auth-frontend/" element={<Home />} />
-        <Route path="/user-auth-frontend/login" element={<Login />} />
-        <Route path="/user-auth-frontend/signup" element={<Signup />} />
+      <Routes baseName="/userLogin">
+        <Route path="/userLogin" element={<Home />} />
+        <Route path="/userLogin/login" element={<Login />} />
+        <Route path="/userLogin/signup" element={<Signup />} />
         <Route
           path="/user-auth-frontend/change-password"
           element={<ChangePassword />}
